@@ -6,7 +6,7 @@ import com.ww.system.entity.SysRole;
 import java.util.List;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public interface ISysRoleService extends IService<SysRole> {

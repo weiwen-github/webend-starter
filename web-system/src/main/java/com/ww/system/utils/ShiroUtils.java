@@ -7,7 +7,7 @@ import org.apache.shiro.subject.Subject;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public class ShiroUtils {

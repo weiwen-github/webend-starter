@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 被观察者
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 public class ObserverableService implements Observerable {

@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 import javax.validation.constraints.NotNull;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/18
  */
 @Data

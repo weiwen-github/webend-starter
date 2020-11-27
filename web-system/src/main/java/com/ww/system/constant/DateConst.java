@@ -1,7 +1,7 @@
 package com.ww.system.constant;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public class DateConst {

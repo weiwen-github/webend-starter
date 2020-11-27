@@ -8,7 +8,9 @@ import lombok.Data;
 import java.util.HashMap;
 
 /**
- * @author weiwen
+ * 用户角色实体类
+ *
+ * @author ww
  * @date 2020/11/14
  */
 @Data

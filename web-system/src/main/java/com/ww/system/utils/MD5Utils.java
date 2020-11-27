@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * MD5加密工具
- * @author weiwen
+ * @author ww
  * @date 2020/11/19
  */
 public class MD5Utils {

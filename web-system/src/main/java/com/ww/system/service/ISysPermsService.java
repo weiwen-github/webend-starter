@@ -6,7 +6,7 @@ import com.ww.system.entity.SysPermission;
 import java.util.List;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public interface ISysPermsService extends IService<SysPermission> {

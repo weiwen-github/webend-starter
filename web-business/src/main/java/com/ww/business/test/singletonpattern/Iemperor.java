@@ -3,7 +3,7 @@ package com.ww.business.test.singletonpattern;
 /**
  * 单例模式：皇帝接口
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 public interface Iemperor {

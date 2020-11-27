@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 @Slf4j
@@ -45,8 +45,6 @@ public class SysUserController {
    *
    * @param user
    * @return com.ww.common.dto.response.RespBody
-   * @author weiwen
-   * @date 2020/11/26
    */
   @PostMapping("/save")
   public RespBody save(@RequestBody SysUser user) {

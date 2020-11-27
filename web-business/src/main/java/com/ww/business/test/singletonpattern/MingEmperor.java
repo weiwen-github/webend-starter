@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 明朝皇帝实现类
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 public class MingEmperor implements Iemperor {

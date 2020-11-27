@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public interface ISysUserOnlineService extends IService<SysUserOnline> {

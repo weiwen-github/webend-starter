@@ -3,7 +3,7 @@ package com.ww.business.test.observerpattern;
 /**
  * 被观察者
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 public interface Observerable {

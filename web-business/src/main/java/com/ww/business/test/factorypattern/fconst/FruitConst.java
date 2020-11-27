@@ -2,7 +2,7 @@ package com.ww.business.test.factorypattern.fconst;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/18
  */
 public class FruitConst {

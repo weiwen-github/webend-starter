@@ -8,7 +8,7 @@ import com.ww.business.test.observerpattern.User;
 import org.apache.commons.lang.ArrayUtils;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/16
  */
 public class TestController {

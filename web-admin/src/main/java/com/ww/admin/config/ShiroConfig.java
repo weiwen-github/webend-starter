@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * shiro框架配置类
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/10
  */
 @Configuration

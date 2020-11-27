@@ -5,7 +5,7 @@ import com.ww.system.entity.SysUserOnline;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/16
  */
 public interface SysUserOnlineMapper extends BaseMapper<SysUserOnline> {

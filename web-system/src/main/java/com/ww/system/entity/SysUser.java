@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author weiwen
+ * 用户实体类
+ *
+ * @author ww
  * @date 2020/11/11
  */
 @Data

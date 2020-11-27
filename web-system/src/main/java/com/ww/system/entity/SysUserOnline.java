@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.HashMap;
 
 /**
- * @author weiwen
+ * 在线用户实体类
+ *
+ * @author ww
  * @date 2020/11/16
  */
 @Data

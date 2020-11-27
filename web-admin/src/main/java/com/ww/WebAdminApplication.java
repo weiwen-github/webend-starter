@@ -8,7 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/10
  */
 @SpringBootApplication(scanBasePackages = {"com.ww"})

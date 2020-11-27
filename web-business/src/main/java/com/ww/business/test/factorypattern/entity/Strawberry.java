@@ -3,7 +3,7 @@ package com.ww.business.test.factorypattern.entity;
 import lombok.Data;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 @Data

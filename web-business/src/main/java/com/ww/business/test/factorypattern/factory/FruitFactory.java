@@ -8,7 +8,7 @@ import com.ww.business.test.factorypattern.entity.Strawberry;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/18
  */
 public class FruitFactory {

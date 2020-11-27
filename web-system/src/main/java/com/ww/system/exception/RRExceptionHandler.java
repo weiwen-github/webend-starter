@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * 异常处理器
  *
- * @author zyj
- * @date 2017年8月8日 上午11:59:44
+ * @author ww
+ * @date 2020/11/14
  */
 @RestControllerAdvice
 public class RRExceptionHandler {

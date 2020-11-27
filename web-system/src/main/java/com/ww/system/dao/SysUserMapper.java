@@ -5,7 +5,7 @@ import com.ww.system.entity.SysUser;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {

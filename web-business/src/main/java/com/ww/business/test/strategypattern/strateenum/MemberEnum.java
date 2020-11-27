@@ -2,7 +2,7 @@ package com.ww.business.test.strategypattern.strateenum;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/18
  */
 public enum MemberEnum {

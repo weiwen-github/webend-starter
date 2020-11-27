@@ -7,7 +7,7 @@ import com.ww.system.service.ISysRolePermsService;
 import org.springframework.stereotype.Service;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 @Service

@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public interface ISysUserRoleService extends IService<SysUserRole> {

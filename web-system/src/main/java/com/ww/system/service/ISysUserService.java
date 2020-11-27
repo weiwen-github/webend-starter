@@ -6,7 +6,7 @@ import com.ww.system.entity.SysUser;
 import java.util.Set;
 
 /**
- * @author weiwen
+ * @author ww
  * @date 2020/11/12
  */
 public interface ISysUserService extends IService<SysUser> {

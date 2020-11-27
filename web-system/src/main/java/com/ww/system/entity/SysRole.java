@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author weiwen
+ * 角色实体类
+ *
+ * @author ww
  * @date 2020/11/12
  */
 @Data
 @TableName("sys_role")
 public class SysRole implements Serializable {
-
-  private static final long serialVersionUID = 1L;
 
   public static final String ROLE_ID = "role_id";
   public static final String ROLE_NAME = "role_name";
@@ -27,19 +27,19 @@ public class SysRole implements Serializable {
   public static final String USER_ID_CREATE = "user_id_create";
   public static final String GMT_CREATE = "gmt_create";
   public static final String GMT_MODIFIED = "gmt_modified";
-
+  private static final long serialVersionUID = 1L;
   public static HashMap<String, String> fieldAlias =
-          new HashMap<String, String>() {
-            {
-              put("roleId", "角色id");
-              put("roleName", "角色名称");
-              put("roleSign", "角色标识");
-              put("remark", "备注");
-              put("userIdCreate", "创建者id");
-              put("gmtCreate", "创建时间");
-              put("gmtModified", "修改时间");
-            }
-          };
+      new HashMap<String, String>() {
+        {
+          put("roleId", "角色id");
+          put("roleName", "角色名称");
+          put("roleSign", "角色标识");
+          put("remark", "备注");
+          put("userIdCreate", "创建者id");
+          put("gmtCreate", "创建时间");
+          put("gmtModified", "修改时间");
+        }
+      };
   /** {name:"角色id"} */
   @TableId(value = "role_id", type = IdType.AUTO)
   private Long roleId;

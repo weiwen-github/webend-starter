@@ -1,8 +1,5 @@
 package com.ww.system.controller.dto;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,8 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- *
- * @author weiwen
+ * @author ww
  * @date 2020/11/26
  */
 @Data

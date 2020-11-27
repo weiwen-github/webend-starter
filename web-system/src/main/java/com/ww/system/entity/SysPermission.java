@@ -5,14 +5,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
  * 权限实体类
- * @author weiwen
+ *
+ * @author ww
  * @date 2020/11/13
  */
 @Data
@@ -25,15 +24,15 @@ public class SysPermission {
   public static final String GMT_MODIFIED = "gmt_modified";
 
   public static HashMap<String, String> fieldAlias =
-          new HashMap<String, String>() {
-            {
-              put("id", "主键");
-              put("perms", "权限名称");
-              put("ulr", "请求路径");
-              put("gmtCreate", "创建时间");
-              put("gmtModified", "修改时间");
-            }
-          };
+      new HashMap<String, String>() {
+        {
+          put("id", "主键");
+          put("perms", "权限名称");
+          put("ulr", "请求路径");
+          put("gmtCreate", "创建时间");
+          put("gmtModified", "修改时间");
+        }
+      };
 
   /** {name:"主键"} */
   @TableId(value = "id", type = IdType.AUTO)

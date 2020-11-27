@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * 具体策略类 : 高级会员折扣类
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 @Service

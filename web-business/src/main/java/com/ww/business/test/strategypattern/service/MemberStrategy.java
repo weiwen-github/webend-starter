@@ -1,11 +1,9 @@
 package com.ww.business.test.strategypattern.service;
 
-import com.ww.business.test.strategypattern.strateenum.MemberEnum;
-
 /**
  * 抽象策略类
  *
- * @author weiwen
+ * @author ww
  * @date 2020/11/17
  */
 public interface MemberStrategy {
