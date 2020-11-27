@@ -1,7 +1,11 @@
 package com.ww.system.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ww.common.constant.ResponseConst;
+import com.ww.common.controller.BaseController;
 import com.ww.common.dto.request.IdDto;
+import com.ww.common.dto.request.PageDto;
+import com.ww.common.dto.response.PageResp;
 import com.ww.common.dto.response.RespBody;
 import com.ww.common.utils.CommonUtils;
 import com.ww.system.entity.SysUser;
@@ -21,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/user")
-public class SysUserController {
+public class SysUserController extends BaseController {
 
   @Autowired ISysUserService sysUserService;
 
@@ -43,6 +47,16 @@ public class SysUserController {
     return RespBody.ok("验证成功");
   }
 
+  @PostMapping("/list")
+  public PageResp list(@RequestBody PageDto pageDto) {
+    log.info("分页参数：{}", pageDto);
+    Page<SysUser> pages = getPage(pageDto);
+    pages = sysUserService.listPageWithParams(pageDto, pages, null);
+    // 填充部分字段
+    sysUserService.fillField(pages.getRecords());
+    return getPageResFromPage(pages);
+  }
+
   /**
    * 新增用户
    *
@@ -57,6 +71,22 @@ public class SysUserController {
     } else {
       return RespBody.error(ResponseConst.ADD_ERROR);
     }
+  }
+
+  /**
+   * 获取用户详情
+   *
+   * @param idDto
+   * @return com.ww.common.dto.response.RespBody
+   */
+  @PostMapping("/detail")
+  public RespBody<SysUser> detail(@RequestBody IdDto idDto) {
+    Long id = idDto.getId();
+    if (CommonUtils.isNullOrEmpty(id)) {
+      return RespBody.error("请输入ID");
+    }
+    SysUser user = sysUserService.getUserById(id);
+    return RespBody.ok().data(user);
   }
 
   /**

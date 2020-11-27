@@ -1,10 +1,10 @@
 package com.ww.business.controller;
 
-import com.ww.business.common.BaseController;
 import com.ww.business.controller.dto.ReqDto;
 import com.ww.business.test.strategypattern.context.MemberContext;
 import com.ww.business.test.strategypattern.service.MemberStrategy;
 import com.ww.business.test.strategypattern.strateenum.MemberEnum;
+import com.ww.common.controller.BaseController;
 import com.ww.common.dto.response.RespBody;
 import com.ww.system.entity.SysUser;
 import com.ww.system.utils.AESUtils;

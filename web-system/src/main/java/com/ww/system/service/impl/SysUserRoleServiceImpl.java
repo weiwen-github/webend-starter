@@ -8,9 +8,7 @@ import com.ww.system.entity.SysUserRole;
 import com.ww.system.service.ISysUserRoleService;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -34,5 +32,25 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
       return new HashSet<>();
     }
     return userRoles.parallelStream().map(SysUserRole::getRoleId).collect(Collectors.toSet());
+  }
+
+  /**
+   * 构造userId ~ roleIds Map
+   *
+   * @return java.util.Map<java.lang.Long,java.util.Set<java.lang.Long>>
+   */
+  @Override
+  public Map<Long, Set<Long>> buildUserIdRoleIdsMap() {
+    List<SysUserRole> userRoles = this.list();
+    Map<Long, List<SysUserRole>> map =
+        userRoles.stream().collect(Collectors.groupingBy(SysUserRole::getUserId));
+    Map<Long, Set<Long>> resultMap = new HashMap<>();
+    map.forEach(
+        (userId, userRoleList) -> {
+          Set<Long> roleIds =
+              userRoleList.stream().map(SysUserRole::getRoleId).collect(Collectors.toSet());
+          resultMap.put(userId, roleIds);
+        });
+    return resultMap;
   }
 }

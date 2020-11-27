@@ -1,7 +1,10 @@
 package com.ww.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ww.common.dto.request.PageDto;
+import com.ww.common.utils.CommonUtils;
 import com.ww.system.dao.SysUserMapper;
 import com.ww.system.entity.SysPermission;
 import com.ww.system.entity.SysRole;
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -33,20 +37,21 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
   @Autowired ISysRolePermsService sysRolePermsService;
 
   /**
-   * 登录
+   * 分页获取用户信息
    *
-   * @param username
-   * @param password
-   * @return java.lang.Boolean
+   * @param pageDto
+   * @param pages
+   * @param ew
+   * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page<com.ww.system.entity.SysUser>
    */
   @Override
-  public Boolean login(String username, String password) {
-    SysUser sysUser =
-        this.getOne(
-            new QueryWrapper<SysUser>()
-                .eq(SysUser.USER_NAME, username)
-                .eq(SysUser.PASSWORD, password));
-    return sysUser != null;
+  public Page<SysUser> listPageWithParams(PageDto pageDto, Page<SysUser> pages, QueryWrapper<SysUser> ew) {
+    if (null == ew) {
+      ew = new QueryWrapper<>();
+    }
+    ew.orderByDesc(SysUser.GMT_CREATE);
+    page(pages, ew);
+    return pages;
   }
 
   @Override
@@ -128,5 +133,45 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
   @Override
   public Boolean updateUser(SysUser user) {
     return this.updateById(user);
+  }
+
+  /**
+   * 获取详情
+   *
+   * @param id
+   * @return com.ww.system.entity.SysUser
+   */
+  @Override
+  public SysUser getUserById(Long id) {
+    SysUser user = this.getById(id);
+    Set<Long> roleIds = sysUserRoleService.getRoleIdsByUserId(user.getUserId());
+    user.setRoleIdSet(roleIds);
+    if (!CommonUtils.isNullOrEmpty(roleIds)) {
+      List<SysRole> roles = sysRoleService.listByIds(roleIds);
+      List<String> roleSignList = roles.stream().map(SysRole::getRoleSign).collect(Collectors.toList());
+      user.setRoleSignList(roleSignList);
+    }
+    return user;
+  }
+
+  /**
+   * 填充部分字段
+   *
+   * @param userList
+   * @return void
+   */
+  @Override
+  public void fillField(List<SysUser> userList) {
+    Map<Long, Set<Long>> idRoleIdsMap = sysUserRoleService.buildUserIdRoleIdsMap();
+    userList.forEach(user -> {
+      Set<Long> roleIds = idRoleIdsMap.get(user.getUserId());
+      if (CommonUtils.isNullOrEmpty(roleIds)) {
+        return;
+      }
+      List<SysRole> sysRoles = sysRoleService.getSysRoles(roleIds);
+      List<String> roleSignList = sysRoles.stream().map(SysRole::getRoleSign).collect(Collectors.toList());
+      user.setRoleIdSet(roleIds);
+      user.setRoleSignList(roleSignList);
+    });
   }
 }

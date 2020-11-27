@@ -1,12 +1,11 @@
 package com.ww.common.dto.response;
 
-import cn.hutool.db.PageResult;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.ww.common.entity.PageResult;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.apache.poi.ss.formula.functions.T;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
 @Accessors(chain = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel(description = "标准分页返回")
-public class PageResp {
+public class PageResp<T> {
   @ApiModelProperty(value = "状态码")
   private Integer code;
 

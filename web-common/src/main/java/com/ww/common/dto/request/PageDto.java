@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @Accessors(chain = true)
 @ApiModel(description = "基础分页")
-public class PageReqBase {
+public class PageDto {
   @NotNull
   @ApiModelProperty(value = "页码", example = "1")
   Integer pageNumber;

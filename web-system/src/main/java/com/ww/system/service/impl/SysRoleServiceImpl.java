@@ -42,4 +42,21 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole>
     // 用户角色
     return this.list(new QueryWrapper<SysRole>().in(SysRole.ROLE_ID, roleIds));
   }
+
+  /**
+   * 获取角色对象列表
+   *
+   * @param roleIds
+   * @return java.util.List<com.ww.system.entity.SysRole>
+   */
+  @Override
+  public List<SysRole> getSysRoles(Set<Long> roleIds) {
+    List<SysRole> roles = new ArrayList<>();
+    if (CommonUtils.isNullOrEmpty(roleIds)) {
+      roles.addAll(this.list());
+    } else {
+      roles.addAll(this.listByIds(roleIds));
+    }
+    return roles;
+  }
 }
