@@ -72,7 +72,7 @@ public interface ISysUserService extends IService<SysUser> {
    * @param id
    * @return com.ww.system.entity.SysUser
    */
-  SysUser getUserById(Long id);
+  SysUser detail(Long id);
 
   /**
    * 填充部分字段

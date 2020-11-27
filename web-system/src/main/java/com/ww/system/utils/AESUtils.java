@@ -44,7 +44,7 @@ public class AESUtils {
     IvParameterSpec iv = new IvParameterSpec(OFFSET.getBytes());
     cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
     byte[] encrypted = cipher.doFinal(password.getBytes(StandardCharsets.UTF_8));
-    // 此处使用BASE64做转码。
+    // 此处使用BASE64做转码
     String result = new BASE64Encoder().encode(encrypted);
     return result;
   }
@@ -64,7 +64,7 @@ public class AESUtils {
     cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
     byte[] buffer = new BASE64Decoder().decodeBuffer(encryptPwd);
     byte[] encrypted = cipher.doFinal(buffer);
-    // 此处使用BASE64做转码。
+    // 此处使用BASE64做转码
     String result = new String(encrypted, StandardCharsets.UTF_8);
     return result;
   }

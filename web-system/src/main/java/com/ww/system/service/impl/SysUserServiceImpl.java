@@ -14,6 +14,7 @@ import com.ww.system.exception.RRException;
 import com.ww.system.service.*;
 import com.ww.system.utils.MD5Utils;
 import com.ww.system.utils.ShiroUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ import java.util.stream.Collectors;
  * @author ww
  * @date 2020/11/12
  */
+@Slf4j
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
     implements ISysUserService {
@@ -142,16 +144,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
    * @return com.ww.system.entity.SysUser
    */
   @Override
-  public SysUser getUserById(Long id) {
-    SysUser user = this.getById(id);
-    Set<Long> roleIds = sysUserRoleService.getRoleIdsByUserId(user.getUserId());
-    user.setRoleIdSet(roleIds);
-    if (!CommonUtils.isNullOrEmpty(roleIds)) {
-      List<SysRole> roles = sysRoleService.listByIds(roleIds);
-      List<String> roleSignList = roles.stream().map(SysRole::getRoleSign).collect(Collectors.toList());
-      user.setRoleSignList(roleSignList);
-    }
-    return user;
+  public SysUser detail(Long id) {
+    return this.getById(id);
   }
 
   /**
@@ -162,16 +156,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
    */
   @Override
   public void fillField(List<SysUser> userList) {
-    Map<Long, Set<Long>> idRoleIdsMap = sysUserRoleService.buildUserIdRoleIdsMap();
-    userList.forEach(user -> {
-      Set<Long> roleIds = idRoleIdsMap.get(user.getUserId());
-      if (CommonUtils.isNullOrEmpty(roleIds)) {
-        return;
-      }
-      List<SysRole> sysRoles = sysRoleService.getSysRoles(roleIds);
-      List<String> roleSignList = sysRoles.stream().map(SysRole::getRoleSign).collect(Collectors.toList());
-      user.setRoleIdSet(roleIds);
-      user.setRoleSignList(roleSignList);
-    });
+    // 填充其他字段信息
   }
 }

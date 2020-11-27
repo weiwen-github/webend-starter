@@ -85,7 +85,7 @@ public class SysUserController extends BaseController {
     if (CommonUtils.isNullOrEmpty(id)) {
       return RespBody.error("请输入ID");
     }
-    SysUser user = sysUserService.getUserById(id);
+    SysUser user = sysUserService.detail(id);
     return RespBody.ok().data(user);
   }
 
