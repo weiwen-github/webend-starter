@@ -11,7 +11,7 @@
 
     <artifactId>web-admin</artifactId>
     <packaging>jar</packaging>
-    <description>API-DEMO</description>
+    <description>API-DOCUMENT</description>
 
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>

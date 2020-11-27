@@ -50,4 +50,12 @@ public interface ISysUserService extends IService<SysUser> {
    * @return java.lang.Boolean
    */
   Boolean saveUser(SysUser user);
+
+  /**
+   * 编辑用户
+   *
+   * @param user
+   * @return boolean
+   */
+  Boolean updateUser(SysUser user);
 }

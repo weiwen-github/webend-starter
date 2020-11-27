@@ -32,8 +32,8 @@ public class SwaggerConfig {
 
   private ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-        .title("API-DEMO")
-        .description("API-DEMO test")
+        .title("API-DOCUMENT")
+        .description("API-DOCUMENT")
         .version("1.0-API")
         .build();
   }

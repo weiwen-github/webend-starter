@@ -1,6 +1,9 @@
 package com.ww.system.controller;
 
+import com.ww.common.constant.ResponseConst;
+import com.ww.common.dto.request.IdDto;
 import com.ww.common.dto.response.RespBody;
+import com.ww.common.utils.CommonUtils;
 import com.ww.system.entity.SysUser;
 import com.ww.system.service.ISysPermsService;
 import com.ww.system.service.ISysUserService;
@@ -50,9 +53,45 @@ public class SysUserController {
   public RespBody save(@RequestBody SysUser user) {
     Boolean add = sysUserService.saveUser(user);
     if (add) {
-      return RespBody.ok("添加成功");
+      return RespBody.ok(ResponseConst.ADD_OK);
     } else {
-      return RespBody.error("添加失败");
+      return RespBody.error(ResponseConst.ADD_ERROR);
+    }
+  }
+
+  /**
+   * 编辑用户
+   *
+   * @param user
+   * @return com.ww.common.dto.response.RespBody
+   */
+  @PostMapping("/update")
+  public RespBody update(@RequestBody SysUser user) {
+    boolean update = sysUserService.updateUser(user);
+    if (update) {
+      return RespBody.ok(ResponseConst.UPDATE_OK);
+    } else {
+      return RespBody.error(ResponseConst.UPDATE_ERROR);
+    }
+  }
+
+  /**
+   * 删除用户
+   *
+   * @param idDto
+   * @return com.ww.common.dto.response.RespBody
+   */
+  @PostMapping("/remove")
+  public RespBody remove(@RequestBody IdDto idDto) {
+    Long id = idDto.getId();
+    if (CommonUtils.isNullOrEmpty(id)) {
+      return RespBody.error("请输入ID");
+    }
+    boolean remove = sysUserService.removeById(id);
+    if (remove) {
+      return RespBody.ok(ResponseConst.REMOVE_OK);
+    } else {
+      return RespBody.error(ResponseConst.REMOVE_ERROR);
     }
   }
 }

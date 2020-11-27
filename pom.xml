@@ -16,7 +16,7 @@
         </modules>
 
     <name>webend-starter</name>
-    <description>Demo项目</description>
+    <description>API-DOCUMENT</description>
     <packaging>pom</packaging>
 
     <!--版本号管理-->

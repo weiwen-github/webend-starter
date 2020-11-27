@@ -93,7 +93,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
     user.setPassword(MD5Utils.encrypt(user.getPassword()));
     user.setGmtCreate(LocalDateTime.now());
     user.setCreateUserId(ShiroUtils.getUserId());
-    int count = this.count(new QueryWrapper<SysUser>().eq(SysUser.USER_NAME, user.getUserName()).or().eq(SysUser.USER_REAL_NAME, user.getUserRealName()));
+    int count =
+        this.count(
+            new QueryWrapper<SysUser>()
+                .eq(SysUser.USER_NAME, user.getUserName())
+                .or()
+                .eq(SysUser.USER_REAL_NAME, user.getUserRealName()));
     if (count > 0) {
       throw new RRException("已存在该用户名或者用户真实姓名，请重新输入");
     }
@@ -112,5 +117,16 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
       save = sysUserRoleService.saveBatch(userRoles);
     }
     return save;
+  }
+
+  /**
+   * 编辑用户
+   *
+   * @param user
+   * @return java.lang.Boolean
+   */
+  @Override
+  public Boolean updateUser(SysUser user) {
+    return this.updateById(user);
   }
 }
