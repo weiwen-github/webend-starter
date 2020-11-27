@@ -23,7 +23,7 @@ public class PageResp<T> {
   private Integer code;
 
   @ApiModelProperty(value = "记录总数")
-  Long total;
+  private Long total;
 
   @ApiModelProperty(value = "返回数据")
   private List<T> data;

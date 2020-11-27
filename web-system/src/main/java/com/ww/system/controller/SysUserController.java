@@ -12,6 +12,7 @@ import com.ww.system.entity.SysUser;
 import com.ww.system.service.ISysPermsService;
 import com.ww.system.service.ISysUserService;
 import com.ww.system.utils.ShiroUtils;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -47,6 +48,7 @@ public class SysUserController extends BaseController {
     return RespBody.ok("验证成功");
   }
 
+  @ApiOperation("用户列表")
   @PostMapping("/list")
   public PageResp list(@RequestBody PageDto pageDto) {
     log.info("分页参数：{}", pageDto);
@@ -63,6 +65,7 @@ public class SysUserController extends BaseController {
    * @param user
    * @return com.ww.common.dto.response.RespBody
    */
+  @ApiOperation("新增用户")
   @PostMapping("/save")
   public RespBody save(@RequestBody SysUser user) {
     Boolean add = sysUserService.saveUser(user);
@@ -79,6 +82,7 @@ public class SysUserController extends BaseController {
    * @param idDto
    * @return com.ww.common.dto.response.RespBody
    */
+  @ApiOperation("用户详情")
   @PostMapping("/detail")
   public RespBody<SysUser> detail(@RequestBody IdDto idDto) {
     Long id = idDto.getId();
@@ -95,6 +99,7 @@ public class SysUserController extends BaseController {
    * @param user
    * @return com.ww.common.dto.response.RespBody
    */
+  @ApiOperation("编辑用户")
   @PostMapping("/update")
   public RespBody update(@RequestBody SysUser user) {
     boolean update = sysUserService.updateUser(user);
@@ -111,6 +116,7 @@ public class SysUserController extends BaseController {
    * @param idDto
    * @return com.ww.common.dto.response.RespBody
    */
+  @ApiOperation("删除用户")
   @PostMapping("/remove")
   public RespBody remove(@RequestBody IdDto idDto) {
     Long id = idDto.getId();
