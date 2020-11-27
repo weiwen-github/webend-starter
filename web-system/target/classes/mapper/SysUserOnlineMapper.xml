@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ww.system.dao.SysUserOnlineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ww.system.entity.SysUserOnline">
+        <id column="session_id" property="sessionId"/>
+        <result column="dept_name" property="deptName"/>
+        <result column="login_name" property="loginName"/>
+        <result column="ip_addr" property="ipAddr"/>
+        <result column="login_location" property="loginLocation"/>
+        <result column="browser" property="browser"/>
+        <result column="os" property="os"/>
+        <result column="start_timestamp" property="startTimestamp"/>
+        <result column="last_access_time" property="lastAccessTime"/>
+        <result column="expire_time" property="expireTime"/>
+    </resultMap>
+
+
+</mapper>

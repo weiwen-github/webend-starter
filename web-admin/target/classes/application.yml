@@ -1,0 +1,62 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /
+    session:
+      persistent: true
+      cookie:
+        secure: true
+  tomcat:
+    uri-encoding: UTF-8
+    max-connections: 800
+    max-swallow-size: 100MB
+
+spring:
+  thymeleaf:
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://localhost:3306/xxxdb?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: xxxxxx
+    password: ENC(xxxxx)
+    driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 4096MB
+      max-request-size: 4096MB
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.ww.**.entity
+  #
+  global-config:
+    db-config:
+      # 主键类型 0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: auto
+      # 字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      select-strategy: not_empty
+      insert-strategy: not_null
+      update-strategy: not_null
+      # 数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置（下面3个配置）
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+
+#data:
+#  file:
+#    path: /xx
+
+
+test:
+  data:
+    file:
+      path: D:/data/wwts/data

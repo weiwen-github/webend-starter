@@ -7,13 +7,13 @@
     <groupId>com.ww</groupId>
     <artifactId>webend-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!--    <modules>-->
-    <!--        <module>web-common</module>-->
-    <!--        <module>web-admin</module>-->
-    <!--        <module>web-business</module>-->
-    <!--        <module>web-system</module>-->
-    <!--        <module>web-framework</module>-->
-    <!--    </modules>-->
+        <modules>
+            <module>web-common</module>
+            <module>web-admin</module>
+            <module>web-business</module>
+            <module>web-system</module>
+            <module>web-framework</module>
+        </modules>
 
     <name>webend-starter</name>
     <description>Demo项目</description>
