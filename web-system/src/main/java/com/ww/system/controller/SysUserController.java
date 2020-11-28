@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ww.common.constant.ResponseConst;
 import com.ww.common.controller.BaseController;
 import com.ww.common.dto.request.IdDto;
+import com.ww.common.dto.request.IdsDto;
 import com.ww.common.dto.request.PageDto;
 import com.ww.common.dto.response.PageResp;
 import com.ww.common.dto.response.RespBody;
@@ -18,6 +19,8 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author ww
@@ -125,6 +128,43 @@ public class SysUserController extends BaseController {
       return RespBody.error("请输入ID");
     }
     boolean remove = sysUserService.removeById(id);
+    if (remove) {
+      return RespBody.ok(ResponseConst.REMOVE_OK);
+    } else {
+      return RespBody.error(ResponseConst.REMOVE_ERROR);
+    }
+  }
+
+  /**
+   * 删除用户
+   *
+   * @param idsDto
+   * @return com.ww.common.dto.response.RespBody
+   */
+  @ApiOperation("删除某些用户")
+  @PostMapping("/removeAny")
+  public RespBody removeAny(@RequestBody IdsDto idsDto) {
+    List<Long> ids = idsDto.getIds();
+    if (CommonUtils.isNullOrEmpty(ids)) {
+      return RespBody.error("请输入ID");
+    }
+    boolean remove = sysUserService.removeByIds(ids);
+    if (remove) {
+      return RespBody.ok(ResponseConst.REMOVE_OK);
+    } else {
+      return RespBody.error(ResponseConst.REMOVE_ERROR);
+    }
+  }
+
+  /**
+   * 删除所有用户
+   *
+   * @return com.ww.common.dto.response.RespBody
+   */
+  @ApiOperation("删除所有用户")
+  @PostMapping("/removeAll")
+  public RespBody removeAll() {
+    boolean remove = sysUserService.remove(null);
     if (remove) {
       return RespBody.ok(ResponseConst.REMOVE_OK);
     } else {
