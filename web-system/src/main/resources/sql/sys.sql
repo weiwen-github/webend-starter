@@ -21,7 +21,7 @@ CREATE TABLE sys_dept (
   gmt_create timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '{name:""创建时间}',
   gmt_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '{name:""修改时间}',
   delete_flag int(2) NOT NULL DEFAULT '0' COMMENT '{name:"是否删除, 0--否，1--是"}',
-  PRIMARY KEY (org_id)
+  PRIMARY KEY (dept_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
 -- 用户表----------------------------
