@@ -1,3 +1,15 @@
+---机构（单位）表------------
+drop table if exists sys_org;
+CREATE TABLE sys_org (
+  org_id bigint NOT NULL AUTO_INCREMENT COMMENT '{name:"机构ID"}',
+  org_name varchar(125) NOT NULL COMMENT '{name:"机构名称"}',
+  create_id bigint NOT NULL COMMENT '{name:""创建人ID}',
+  gmt_create timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '{name:""创建时间}',
+  gmt_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '{name:""修改时间}',
+  delete_flag int(2) NOT NULL DEFAULT '0' COMMENT '{name:"是否删除, 0--否，1--是"}',
+  PRIMARY KEY (org_id)
+) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
+
 -- 用户表----------------------------
 drop table if exists sys_user;
 CREATE TABLE sys_user (

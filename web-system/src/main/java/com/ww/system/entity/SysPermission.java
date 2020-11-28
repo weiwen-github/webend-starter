@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
  */
 @Data
 @TableName("sys_permission")
-public class SysPermission {
+public class SysPermission implements Serializable {
   public static final String ID = "id";
   public static final String PERMS = "perms";
   public static final String URL = "url";

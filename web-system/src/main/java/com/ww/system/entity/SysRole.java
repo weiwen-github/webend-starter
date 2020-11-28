@@ -55,7 +55,7 @@ public class SysRole implements Serializable {
   private String remark;
 
   /** {name:"创建者id"} */
-  private Long userIdCreate;
+  private Long createUserId;
 
   /** {name:"创建时间"} */
   private LocalDateTime gmtCreate;
