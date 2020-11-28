@@ -32,6 +32,7 @@ public class SysUserController extends BaseController {
 
   @Autowired ISysPermsService sysPermsService;
 
+  @ApiOperation("登录")
   @ResponseBody
   @PostMapping("/login")
   public RespBody login(String username, String password) {
@@ -43,9 +44,9 @@ public class SysUserController extends BaseController {
     } catch (UnknownAccountException | IncorrectCredentialsException | LockedAccountException e) {
       return RespBody.error(e.getMessage());
     } catch (AuthenticationException e) {
-      return RespBody.error("验证失败");
+      return RespBody.error("登录失败");
     }
-    return RespBody.ok("验证成功");
+    return RespBody.ok("登录成功");
   }
 
   @ApiOperation("用户列表")
