@@ -8,9 +8,10 @@ CREATE TABLE sys_user (
   create_user_id bigint(20) NOT NULL COMMENT '{name:"创建用户ID"}',
   gmt_create timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '{name:"创建时间"}',
   gmt_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '{name:"修改时间"}',
-  delete_flag int(2) NOT NULL DEFAULT 0 COMMENT '{name:"是否删除",desc:"0-否，1-是"}',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='用户表表';
+  delete_flag int(2) NOT NULL DEFAULT '0' COMMENT '{name:"是否删除",desc:"0-否，1-是"}',
+  PRIMARY KEY (user_id),
+  UNIQUE KEY idx_sys_user_username (user_name) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
 
 -- 角色表---------------------------
 drop table if exists sys_role;
