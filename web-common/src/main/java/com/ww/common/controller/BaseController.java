@@ -30,14 +30,20 @@ public class BaseController {
     String sort = transformField(PageDTO.getSortField());
     String order = PageDTO.getSortOrder();
 
-    return getPage(pageNumber, pageSize, sort, order);
+    OrderItem orderItem = new OrderItem();
+    orderItem.setColumn(sort);
+    Page<T> page = new Page<T>(pageNumber, pageSize);
+    orderItem.setAsc(!"desc".equals(order));
+    page.setOrders(ImmutableList.of(orderItem));
+
+    return page;
   }
 
   /**
    * page中抽取获取返回信息
    *
    * @param page
-   * @return com.xw.common.respon.NewPageRet
+   * @return com.ww.common.dto.response.PageResp
    */
   public PageResp getPageResFromPage(Page page) {
     return new PageResp<>()
@@ -68,23 +74,5 @@ public class BaseController {
       sb.append(Character.toLowerCase(c));
     }
     return sb.toString();
-  }
-
-  /**
-   * 获取分页对象
-   *
-   * @param current
-   * @param size
-   * @param sort
-   * @param order
-   * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page<T>
-   */
-  public <T> Page<T> getPage(int current, int size, String sort, String order) {
-    OrderItem orderItem = new OrderItem();
-    orderItem.setColumn(sort);
-    Page<T> page = new Page<T>(current, size);
-    orderItem.setAsc(!"desc".equals(order));
-    page.setOrders(ImmutableList.of(orderItem));
-    return page;
   }
 }
