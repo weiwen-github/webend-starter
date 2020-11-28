@@ -11,8 +11,8 @@ CREATE TABLE sys_org (
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 OMMENT='机构表';
 
 ---部门表------------
-drop table if exists sys_org;
-CREATE TABLE sys_org (
+drop table if exists sys_dept;
+CREATE TABLE sys_dept (
   dept_id bigint NOT NULL AUTO_INCREMENT COMMENT '{name:"部门ID"}',
   parent_id bigint NOT NULL  COMMENT '{name:"上级部门ID"}',
   org_id bigint NOT NULL COMMENT '{name:"所属机构(部门)名称"}',
