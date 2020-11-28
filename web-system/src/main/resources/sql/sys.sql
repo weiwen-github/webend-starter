@@ -8,7 +8,7 @@ CREATE TABLE sys_org (
   gmt_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '{name:""修改时间}',
   delete_flag int(2) NOT NULL DEFAULT '0' COMMENT '{name:"是否删除, 0--否，1--是"}',
   PRIMARY KEY (org_id)
-) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 OMMENT='机构表';
+) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='机构表';
 
 ---部门表------------
 drop table if exists sys_dept;
@@ -22,7 +22,7 @@ CREATE TABLE sys_dept (
   gmt_modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '{name:""修改时间}',
   delete_flag int(2) NOT NULL DEFAULT '0' COMMENT '{name:"是否删除, 0--否，1--是"}',
   PRIMARY KEY (org_id)
-) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 OMMENT='部门表';
+) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
 -- 用户表----------------------------
 drop table if exists sys_user;
