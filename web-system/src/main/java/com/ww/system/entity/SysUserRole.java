@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -15,7 +16,7 @@ import java.util.HashMap;
  */
 @Data
 @TableName("sys_user_role")
-public class SysUserRole {
+public class SysUserRole implements Serializable {
   public static final String ID = "";
   public static final String USER_ID = "user_id";
   public static final String ROLE_ID = "role_id";

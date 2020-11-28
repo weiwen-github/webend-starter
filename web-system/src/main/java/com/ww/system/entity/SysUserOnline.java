@@ -3,6 +3,7 @@ package com.ww.system.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -14,7 +15,7 @@ import java.util.HashMap;
  */
 @Data
 @TableName("sys_user_online")
-public class SysUserOnline {
+public class SysUserOnline implements Serializable {
   public static final String SESSION_ID = "session_id";
   public static final String DEPT_NAME = "dept_name";
   public static final String LOGIN_NAME = "login_name";
