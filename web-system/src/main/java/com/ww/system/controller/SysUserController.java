@@ -13,12 +13,15 @@ import com.ww.system.entity.SysUser;
 import com.ww.system.service.ISysPermsService;
 import com.ww.system.service.ISysUserService;
 import com.ww.system.utils.ShiroUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -26,7 +29,7 @@ import java.util.List;
  * @author ww
  * @date 2020/11/12
  */
-@Slf4j
+@Api(tags = "SysUser")
 @RestController
 @RequestMapping("/api/v1/user")
 public class SysUserController extends BaseController {
@@ -36,11 +39,10 @@ public class SysUserController extends BaseController {
   @Autowired ISysPermsService sysPermsService;
 
   @ApiOperation("登录")
-  @ResponseBody
   @PostMapping("/login")
   public RespBody login(String username, String password) {
     try {
-      log.info("登录：账号：{}， 密码：{}", username, password);
+      logger.info("登录账号：{}， 密码：{}", username, password);
       Subject subject = ShiroUtils.getSubject();
       UsernamePasswordToken token = new UsernamePasswordToken(username, password);
       subject.login(token);
@@ -55,12 +57,12 @@ public class SysUserController extends BaseController {
   @ApiOperation("用户列表")
   @PostMapping("/list")
   public PageResp list(@RequestBody PageDto pageDto) {
-    log.info("分页参数：{}", pageDto);
+    logger.info("分页参数：{}", pageDto);
     Page<SysUser> pages = getPage(pageDto);
     pages = sysUserService.listPageWithParams(pageDto, pages, null);
     // 填充部分字段
     sysUserService.fillField(pages.getRecords());
-    return getPageResFromPage(pages);
+    return getPageResultFromPage(pages);
   }
 
   /**

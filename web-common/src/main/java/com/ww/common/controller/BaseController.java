@@ -45,7 +45,7 @@ public class BaseController {
    * @param page
    * @return com.ww.common.dto.response.PageResp
    */
-  public PageResp getPageResFromPage(Page page) {
+  public PageResp getPageResultFromPage(Page page) {
     return new PageResp<>()
         .setTotal(page.getTotal())
         .setPagination(new PageResult(page.getTotal(), page.getSize(), page.getCurrent()))

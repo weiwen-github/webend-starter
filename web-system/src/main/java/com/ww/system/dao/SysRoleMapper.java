@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ww.system.entity.SysRole;
 
 /**
+ * 角色 Mapper 接口
+ *
  * @author ww
- * @date 2020/11/12
+ * @since 2020-12-01
  */
 public interface SysRoleMapper extends BaseMapper<SysRole> {}
