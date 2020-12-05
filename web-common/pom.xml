@@ -14,10 +14,18 @@
 
     <dependencies>
 
+        <!--  mysql数据库驱动包-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.47</version>
+        </dependency>
+
+        <!--  postgres数据库驱动包-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.2</version>
         </dependency>
 
         <dependency>
